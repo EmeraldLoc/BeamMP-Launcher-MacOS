@@ -29,7 +29,7 @@ std::string GetVer(){
     return "2.0";
 }
 std::string GetPatch(){
-    return ".80";
+    return ".82";
 }
 
 std::string GetEP(char*P){
@@ -243,14 +243,9 @@ void EnableMP(){
 }
 
 void PreGame(const std::string& GamePath){
-    const std::string CurrVer("0.26.1.0");
     std::string GameVer = CheckVer(GamePath);
     info("Game Version : " + GameVer);
-    if(GameVer < CurrVer){
-        fatal("Game version is old! Please update.");
-    }else if(GameVer > CurrVer){
-        warn("Game is newer than recommended, multiplayer may not work as intended!");
-    }
+    
     CheckMP(GetGamePath() + "mods/multiplayer");
 
     if(!Dev) {
